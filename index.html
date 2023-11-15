@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="homepic.png">
+    <title>Higher or Lower</title>
+</head>
+<body>
+    <button id="card-shop-toggle">Select Style</button>
+    <div class="card-shop hidden" id="card-shop">
+            <div class="card-design">
+                <p>Classic</p>
+                <img src="AS.png" alt="design1">
+                <p>Owned</p>
+                <button class="buy-design purchased" data-price="0" data-design="0">Select</button>
+            </div>
+
+            <div class="card-design">
+                <p>Stargazer</p>
+                <img src="AS1.png" alt="design2">
+                <p id="price1">$200</p>
+                <button class="buy-design" data-price="200" data-design="1">Purchase</button>
+            </div>
+
+            <div class="card-design">
+                <p>Autumn</p>
+                <img src="AS2.png" alt="design3">
+                <p id="price2">$600</p>
+                <button class="buy-design" data-price="600" data-design="2">Purchase</button>
+            </div>
+
+            <div class="card-design">
+                <p>Solar</p>
+                <img src="AS3.png" alt="design4">
+                <p id="price3">$1000</p>
+                <button class="buy-design" data-price="1000" data-design="3">Purchase</button>
+            </div>
+        </div>
+
+    <div class="game-container">
+        <h1><span class="first-word">Higher</span> <span>or</span> <span class="second-word">Lower</span></h1>
+        <div class="game-scene">
+            <div class="button-container">
+                <button id="higher-button">Higher</button>
+            </div>
+            <div class="card-container">
+                <img id="card-image" src="" alt="Card Image">
+            </div>
+            <div class="button-container">
+                <button id="lower-button">Lower</button>
+            </div>
+        </div>
+        <div class="game-stats">
+            <p id="result-message">guess</p>
+            <p id="cards-remaining"></p>
+            <p id="current-score" class="wrong-tip"></p>
+            <p id="balance">$0</p>
+        </div>
+        <button id="restart-button">Restart</button>
+        <a href="higher-or-lower-rules.html"><button class="homepage-button">Rules</button></a>
+        <button id="login-button">Log in</button>
+        <div class="correct-guesses">
+            <p id="correct-guesses"></p>
+        </div>
+    </div>
+    
+    <script src="index.js"></script>
+</body>
+</html>
