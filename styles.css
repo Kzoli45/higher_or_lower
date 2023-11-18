@@ -3,7 +3,6 @@ body {
     padding: 0;
     font-family: Arial, sans-serif;
     background-color: #1A2C38;
-    overflow: hidden;
 }
 
 h1 {
@@ -12,6 +11,7 @@ h1 {
 
 .game-container {
     text-align: center;
+    width: 400px;
     max-width: 400px;
     margin: 20px auto 0;
     padding: 20px;
@@ -20,8 +20,8 @@ h1 {
 
  
 #card-image {
-    width: 100%;
-    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
     transform: translateX(0);
     transition: transform 0.5s ease-in-out;
   }
@@ -34,7 +34,6 @@ h1 {
         top: 10px;
     }
 }
-
 .not-active {
     display: none;
 }
@@ -61,7 +60,8 @@ h1 {
 
 #card-image {
     width: 150px;
-    height: auto;
+    max-width: 160px;
+    max-height: auto;
     margin: 20px;
     border: 2px solid #000;
     border-radius: 5px;
@@ -116,6 +116,7 @@ button {
 #restart-button {
     background-color: darkblue;
     width: 100px;
+    max-width: 100px;
 }
 
 #result-message {
@@ -126,6 +127,7 @@ button {
 #balance {
     background-color: green;
     width: 100px;
+    max-width: 100%;
 }
 
 #correct-guesses {
@@ -156,6 +158,7 @@ button {
     margin: auto 5px 0;
     font-size: larger;
     width: 60px;
+    max-width: 60px;
     border-radius: 10px;
 }
 
@@ -194,8 +197,10 @@ button {
 }
 
 .card-design img {
+    width: 40px;
     max-width: 40px;
     height: auto;
+    max-height: auto;
     margin: 5px 0;
 }
 
@@ -227,8 +232,36 @@ button {
     top: 70px;
     left: 90px;
     width: 130px;
+    max-width: 130px;
     background-color: orange;
     color: #fff;
+}
+
+@media (max-width: 900px) {
+    #card-shop-toggle {
+        position: absolute;
+        top: 570px;
+        left: 150px;
+        width: 130px;
+        min-width: 100px;
+        max-width: 250px;
+    }
+
+    #card-shop {
+        position: absolute;
+        top: 620px;
+        left: 150px;
+        display: block;
+        max-width: 150px;
+    }
+
+    #correct-guesses {
+        font-size: medium;
+    }
+
+    .game-container {
+        max-width: 400px;
+    }
 }
 
 #card-shop-toggle:hover {
