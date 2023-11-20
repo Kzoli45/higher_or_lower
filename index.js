@@ -119,8 +119,16 @@ function onStreak() {
     }
 }
 
-function updateBalance() {
-    balance += score*2.5;
+function updateBalance(answer) {
+    if(answer === 'correct') {
+        balance += (score*5);
+    }
+    else if (answer === 'wrong') {
+        balance -= 20;
+        if(balance < 0) {
+            balance = 0;
+        }
+    }
     localStorage.setItem('balance', balance);
 }
 
@@ -265,7 +273,7 @@ function updateCardDisplay(direction) {
     const cardsRemaining = document.getElementById("cards-remaining");
     cardsRemaining.textContent = `${cards.length}`;
 
-    updateBalance();
+    //updateBalance();
     const money = document.getElementById("balance");
     money.innerHTML = `$${balance}`;
 
@@ -298,6 +306,7 @@ document.getElementById("higher-button").addEventListener("click", () => {
             score++;
             onStreak();
             changeGreen();
+            updateBalance('correct');
             updateCardDisplay("higher");
             correct++;
         } else {
@@ -306,6 +315,7 @@ document.getElementById("higher-button").addEventListener("click", () => {
             document.getElementById('current-score').classList.remove('correct-tip');
             document.getElementById('current-score').classList.add('wrong-tip');
             changeRed();
+            updateBalance('wrong');
             updateCardDisplay("higher");
         }
         document.getElementById('correct-guesses').innerHTML = null;
@@ -323,6 +333,7 @@ document.getElementById("lower-button").addEventListener("click", () => {
             score++;
             onStreak();
             changeGreen();
+            updateBalance('correct');
             updateCardDisplay("lower");
             correct++;
         } else {
@@ -331,6 +342,7 @@ document.getElementById("lower-button").addEventListener("click", () => {
             document.getElementById('current-score').classList.remove('correct-tip');
             document.getElementById('current-score').classList.add('wrong-tip');
             changeRed();
+            updateBalance('wrong');
             updateCardDisplay("lower");
         }
         document.getElementById('correct-guesses').innerHTML = null;
