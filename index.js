@@ -129,7 +129,41 @@ function updateBalance(answer) {
             balance = 0;
         }
     }
+
+    updateBalanceOnServer(balance);
+
+    console.log('done')
+
+    const money = document.getElementById("balance");
+    money.innerHTML = `$${balance}`;
+
     localStorage.setItem('balance', balance);
+}
+
+function updateBalanceOnServer(newBalance) {
+    const updateBalanceUrl = 'update_balance.php';
+
+    console.log('Before fetch');
+
+    fetch(updateBalanceUrl, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ newBalance: newBalance }),
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Balance updated on server:', data);
+        })
+        .catch(error => {
+            console.error('Error updating balance on server:', error);
+        })
+        .finally(() => {
+            console.log('Update balance request completed.');
+        });
+
+        console.log('After fetch');
 }
 
 /*function giveToken() {
